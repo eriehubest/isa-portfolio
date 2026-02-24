@@ -13,7 +13,7 @@ export default class World {
     }
 
     setObjects() {
-        this.wireframeMesh = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), new THREE.MeshStandardMaterial({ wireframe: true, color: 0x000000, opacity: 0, transparent: true, depthWrite: false }))
+        this.wireframeMesh = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2, 2, 2, 2), new THREE.MeshStandardMaterial({ wireframe: true, color: 0x000000, opacity: 0, transparent: true, depthWrite: false }))
 
         const textureLoader = new THREE.TextureLoader();
 

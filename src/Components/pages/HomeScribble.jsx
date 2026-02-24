@@ -49,7 +49,7 @@ const ScreenScribble = ({ replayKey, setIntroAnimation }) => {
     return (
         <svg
             ref={root}
-            className="screen-scribble absolute z-0"
+            className="screen-scribble absolute z-1000"
             viewBox="0 0 1200 600"
             preserveAspectRatio="none"
             aria-hidden="true"

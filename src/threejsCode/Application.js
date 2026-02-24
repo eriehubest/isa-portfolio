@@ -78,6 +78,7 @@ export default class Application {
             if (this.animationSetup) {
                 this.heroTimeline.progress(this.animationTrack.animationEvents['HEROIN'])
                 this.rotateTimeline.progress(this.animationTrack.animationEvents['JOURNEYIN'])
+                this.aboutTimeline.progress(this.animationTrack.animationEvents['ABOUTIN'])
             }
         })
     }
@@ -121,7 +122,7 @@ export default class Application {
                 z: Math.PI / 4,
                 duration: 1,
                 ease: 'power2.inOut'
-            })
+            }) 
 
             this.cameraTarget = new THREE.Vector3(0, 0, 0);
 
@@ -131,20 +132,25 @@ export default class Application {
             this.heroTimeline.pause()
 
             this.rotateTimeline = gsap.timeline()
-                .to(this.camera.position, {
-                    z: 8,
-                    y: 8,
-                    x: 8,
-                    duration: 0.8,
-                    onUpdate: () => {
-                        this.camera.lookAt(this.cameraTarget);
-                    },
+                .to(this.world.meshCol.position, {
+                    x: this.camera.left / 2,
+                    duration: 0.5,
                 })
                 .to(this.world.mesh.material, {
                     opacity: 1,
-                    duration: 0.8,
+                    duration: 0.5,
                 }, "<")
+                .to(this.world.meshCol.rotation, {
+                    z: 0,
+                    y: 0,
+                    x: Math.PI/2,
+                    duration: 0.5,
+                }, ">")
             this.rotateTimeline.pause()
+
+            this.aboutTimeline = gsap.timeline()
+                .to(this.world.meshCol.position, { y: 1.2, duration: 1});
+            this.aboutTimeline.pause()
 
             this.animationSetup = true;
         }

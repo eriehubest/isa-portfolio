@@ -1,5 +1,6 @@
 import React from 'react'
 import Home from './pages/Home'
+import Cursor from './Cursor'
 
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
@@ -11,7 +12,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Content = ({ currentPage }) => {
     return (
-        <Home />
+        <>
+            <Cursor />
+            <Home />
+        </>
     )
 }
 

@@ -29,11 +29,11 @@ const Navbar = ({ pagesListInfo, setCurrentPage, currentPage }) => {
 	useLayoutEffect(() => {
 		const ctx = gsap.context(() => {
 			gsap.killTweensOf('.navlink');
-			gsap.to('.navlink', { opacity: 0.2, width: '50%', duration: 0.2, ease: 'power2.inOut' });
+			gsap.to('.navlink', { background: 'rgba(0, 0, 0, 0.05)', width: '45%', duration: 0.2, ease: 'power2.inOut' });
 
 			if (currentLinkTarget !== 0) {
 				gsap.killTweensOf(`.link${currentLinkTarget}`);
-				gsap.to(`.link${currentLinkTarget}`, { width: '60%', opacity: 1, duration: 0.2, ease: 'power2.inOut' });
+				gsap.to(`.link${currentLinkTarget}`, { background: 'rgba(0, 0, 0, 0.1)', width: '55%', duration: 0.2, ease: 'power2.inOut' });
 			}
 		}, root)
 

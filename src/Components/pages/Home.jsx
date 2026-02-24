@@ -52,23 +52,23 @@ const Home = () => {
             gsap.set(heroDownSplitText.words, { yPercent: 150 })
 
             const homeDom = document.querySelector('.home')
-
+            
             if (!introAnimation) {
-                homeDom.classList.add('max-h-[100dvh]')
-                homeDom.classList.add('overflow-hidden')
+                document.body.classList.add( "overflow-hidden", 'h-[100dvh]');
+                homeDom.classList.add("overflow-hidden", 'h-[100dvh]' )
                 return;
             }
 
-            homeDom.classList.remove('max-h-[100dvh]')
-            homeDom.classList.remove('overflow-hidden')
-
-            homeDom.classList.add('min-h-[100dvh]')
-
+            homeDom.classList.remove("overflow-hidden", 'h-[100dvh]')
+            
             gsap.to(heroDownSplitText.words, {
                 yPercent: 0,
                 duration: 1,
-                stagger: 0.10,
-            })
+                stagger: 0.1,
+                ease: "power3.out",
+                onComplete: () => document.body.classList.remove("overflow-hidden", 'h-[100dvh]'),
+            });
+
 
             const herotl = gsap.timeline({
                 scrollTrigger: {
@@ -84,7 +84,7 @@ const Home = () => {
             })
 
             // Scroll Timeline
-            const tl = gsap.timeline({
+            const journeytl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '.journey',
                     start: 'top top',
@@ -99,16 +99,29 @@ const Home = () => {
                 }
             })
 
-            tl.to('.bgblackanimate', {
+            journeytl.to('.bgblackanimate', {
                 opacity: 1,
                 duration: 0.2,
             })
 
-            tl.to('.bgblackanimate', {
+            journeytl.to('.bgblackanimate', {
                 scaleX: 1,
                 scaleY: 1,
                 duration: 1,
             }, "<")
+
+            const abouttl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.about',
+                    start: 'top bottom',
+                    end: 'top top',
+                    scrub: true,
+
+                    onUpdate: (self) => {
+                        animationTrack.updateEvent('ABOUTIN', self.progress)
+                    }
+                }
+            })
 
             applicationRef.current.setAnimation(true);
         })
@@ -120,7 +133,7 @@ const Home = () => {
         <div className="home" ref={root}>
             <ScreenScribble setIntroAnimation={setIntroAnimation} />
 
-            <div className="canvas z-20">
+            <div className="canvas">
                 <canvas ref={canvasRef} className="block w-full h-full"></canvas>
             </div>
 
@@ -137,6 +150,10 @@ const Home = () => {
             <div className="journey h-screen w-screen flex flex-col justify-center items-center">
                 {/* <h1 className="mt-20 animatetext text-7xl text-black opacity-0">My Journey</h1> */}
                 <div className="absolute bgblackanimate top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] h-[3000px] w-[3000px] bg-[#171412] rounded-full opacity-0"></div>
+            </div>
+
+            <div className="about">
+                <h1>hi</h1>
             </div>
         </div>
     );

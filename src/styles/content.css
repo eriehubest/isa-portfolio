@@ -31,7 +31,11 @@
         }
 
         .canvas {
-            @apply fixed top-0 left-0 w-dvw h-dvh block;
+            @apply fixed top-0 left-0 w-dvw h-dvh block z-20;
+        }
+
+        .about {
+            @apply min-h-dvh w-screen relative bg-background z-30;
         }
     }   
 }

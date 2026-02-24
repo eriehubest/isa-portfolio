@@ -45,6 +45,7 @@
 
 html, body {
   min-height: 100dvh;
+  scroll-behavior: smooth;
   width: 100vw;
   font-family: var(--font-NecoR);
   background: #997E67;
@@ -75,7 +76,7 @@ html, body {
       @apply flex-2 h-full w-full flex flex-col justify-center items-center gap-4;
 
       .navlink {
-        @apply w-[50%] aspect-square rounded-lg bg-neutral-300 backdrop-blur-2xl flex-center cursor-pointer opacity-20;
+        @apply w-[45%] aspect-square rounded-lg bg-black/20 backdrop-blur-2xl flex-center cursor-pointer opacity-100;
         
         .icon-link {
           @apply text-4xl;
