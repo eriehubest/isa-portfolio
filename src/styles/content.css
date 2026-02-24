@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@import './index.css';
+
+@layer components {
+    .home {
+        @apply relative w-screen min-h-screen flex flex-col z-1 bg-background;
+
+        .hero {
+            @apply relative w-screen h-screen flex flex-col items-center justify-around opacity-100;
+
+            .hero-text {
+                @apply flex-2 flex flex-col justify-center items-center;
+
+                .transform-text {
+                    @apply overflow-hidden;
+                }
+
+                h1 {
+                    @apply text-[8rem] font-NecoV text-center tracking-normal leading-[7rem];
+                }
+
+                h2 {
+                    @apply text-[1.5rem] font-ExconR origin-bottom leading-[3rem];
+                }
+            }
+
+            .hero-info{
+                @apply flex-3 flex justify-around items-center w-full h-full;
+
+            }
+        }
+
+        .canvas {
+            @apply fixed top-0 left-0 w-dvw h-dvh block;
+        }
+    }   
+}

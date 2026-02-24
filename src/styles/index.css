@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Neco-Regular";
+  src: url("/fonts/neco/Neco-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Neco-Medium";
+  src: url("/fonts/neco/Neco-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Neco-Bold";
+  src: url("/fonts/neco/Neco-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Neco-Variable";
+  src: url("/fonts/neco/Neco-Variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Excon-Regular";
+  src: url("/fonts/exon/Excon-Regular.woff2") format("woff2");
+}
+
+@theme {
+  --color-blue-120: #e0dfdf;
+  --color-primary: #fdfcf5;
+
+  --color-background: #fbf9ef;
+
+  --font-NecoR: "Neco-Regular", sans-serif;
+  --font-NecoB: "Neco-Bold", sans-serif;
+  --font-NecoM: "Neco-Medium", sans-serif;
+  --font-NecoV: "Neco-Variable", sans-serif;
+
+  --font-ExconR: "Excon-Regular", sans-serif;
+}
+
+*{
+  overflow-x: hidden;
+}
+
+html, body {
+  min-height: 100dvh;
+  width: 100vw;
+  font-family: var(--font-NecoR);
+  background: #997E67;
+}
+
+/* ::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.23);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+  height: 10%;
+} */
+
+@utility flex-center {
+  @apply flex justify-center items-center;
+}
+
+@layer components {
+  .navbar {
+    @apply z-100 fixed w-[150px] h-screen flex flex-col justify-between items-center;
+
+    .navlinks {
+      @apply flex-2 h-full w-full flex flex-col justify-center items-center gap-4;
+
+      .navlink {
+        @apply w-[50%] aspect-square rounded-lg bg-neutral-300 backdrop-blur-2xl flex-center cursor-pointer opacity-20;
+        
+        .icon-link {
+          @apply text-4xl;
+        }
+      }
+    }
+  }
+}
+
